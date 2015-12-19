@@ -1,0 +1,9 @@
+(namespace react)
+(macro create-element (tagname ...attributes-and-contents)
+       (var last (last attributes-and-contents)
+            [ attributes contents ] (if (and (odd? attributes-and-contents.length) (node? last 'bracket))
+                                        [ (attributes-and-contents.slice 0 -1) (last attributes-and-contents) ]
+                                        [ attributes-and-contents [] ]))
+       `(React.create-element @tagname (hash ...@attributes) ...@contents ))
+
+(alias-macro create-element rx)

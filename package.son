@@ -1,0 +1,11 @@
+{
+  name "sibilant-loader"
+  version "0.0.1"
+  description "sibilant loader plugin for webpack"
+  dependencies { "loader-utils" "0.2.x" }
+  peer-dependencies { sibilant "0.3.x" }
+  author "Jacob Rothstein <hi@jbr.me>"
+  repository { type 'git
+               url  "http://github.com/jbr/sibilant-webpack-loader.git" }
+  license "MIT"
+}

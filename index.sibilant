@@ -1,0 +1,11 @@
+(var sibilant (require 'sibilant)
+     loader-utils (require "loader-utils"))
+(def sibilant-webpack-loader (source)
+     (var sibilant-request (loader-utils.get-remaining-request this)
+          js-request (loader-utils.get-current-request this)
+          query (loader-utils.parse-query this.query)
+          js-result (sibilant.sibilize-file sibilant-request)
+          map (JSON.parse (sibilant.sourcemap-file sibilant-request)))
+
+     (this.callback null js-result map))
+(assign module.exports sibilant-webpack-loader)
