@@ -1,6 +1,7 @@
 (var sibilant (require 'sibilant)
      loader-utils (require "loader-utils"))
 (def sibilant-webpack-loader (source)
+     (this.cacheable)
      (var sibilant-request (loader-utils.get-remaining-request this)
           js-request (loader-utils.get-current-request this)
           query (loader-utils.parse-query this.query)

@@ -1,9 +1,9 @@
 {
   "name": "sibilant-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "sibilant loader plugin for webpack",
   "dependencies": { "loader-utils": "0.2.x" },
-  "peerDependencies": { "sibilant": "0.3.x" },
+  "peerDependencies": { "sibilant": "0.4.x" },
   "author": "Jacob Rothstein <hi@jbr.me>",
   "repository": {
     "type": "git",

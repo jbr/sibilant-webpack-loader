@@ -3,6 +3,7 @@ var sibilant = require("sibilant"),
 var sibilantWebpackLoader = (function sibilantWebpackLoader$(source) {
   /* sibilant-webpack-loader /Users/jbr/code/sibilant-webpack-loader/index.sibilant:3:0 */
 
+  this.cacheable();
   var sibilantRequest = loaderUtils.getRemainingRequest(this),
       jsRequest = loaderUtils.getCurrentRequest(this),
       query = loaderUtils.parseQuery(this.query),
