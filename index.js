@@ -1,14 +1,25 @@
 var sibilant = require("sibilant"),
     loaderUtils = require("loader-utils");
 var sibilantWebpackLoader = (function sibilantWebpackLoader$(source) {
-  /* sibilant-webpack-loader /Users/jbr/code/sibilant-webpack-loader/index.sibilant:3:0 */
+  /* sibilant-webpack-loader index.sibilant:3:0 */
 
-  this.cacheable();
-  var sibilantRequest = loaderUtils.getRemainingRequest(this),
-      jsRequest = loaderUtils.getCurrentRequest(this),
-      query = loaderUtils.parseQuery(this.query),
-      jsResult = sibilant.sibilizeFile(sibilantRequest),
-      map = JSON.parse(sibilant.sourcemapFile(sibilantRequest));
-  return this.callback(null, jsResult, map);
+  var loader = this;
+  loader.cacheable();
+  var sibilantRequest = loaderUtils.getRemainingRequest(loader),
+      jsRequest = loaderUtils.getCurrentRequest(loader),
+      query = loaderUtils.parseQuery(loader.query),
+      result = sibilant({
+    file: sibilantRequest,
+    map: true
+  }),
+      js = result.js,
+      dependencies = result.dependencies,
+      map = result.map;
+  dependencies.map((function() {
+    /* index.sibilant:12:23 */
+  
+    return loader.addDependency(arguments[0]);
+  }));
+  return loader.callback(null, js, JSON.parse(map));
 });
 module.exports = sibilantWebpackLoader;
