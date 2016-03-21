@@ -1,6 +1,6 @@
 {
   "name": "sibilant-loader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "sibilant loader plugin for webpack",
   "dependencies": { "loader-utils": "0.2.x" },
   "peerDependencies": { "sibilant": "0.4.x" },
