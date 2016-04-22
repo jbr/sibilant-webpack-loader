@@ -1,8 +1,6 @@
-(require! "loader-utils")
+(require! "loader-utils" 'sibilant)
 
 (def sibilant-webpack-loader (source)
-     (delete (get require.cache (require.resolve 'sibilant)))
-     (require! 'sibilant)
      (var loader this)
      (loader.cacheable)
      (var sibilant-request (loader-utils.get-remaining-request loader)
@@ -13,6 +11,6 @@
           { js dependencies map } result)
      (console.log (""sibilant-request": "(.join dependencies ", ")))
      (dependencies.map (#-> loader.add-dependency))
-     (loader.callback null js (JSON.parse map)))
+     (loader.callback null js map))
 
 (set module 'exports sibilant-webpack-loader)

@@ -1,9 +1,8 @@
-var loaderUtils = require("loader-utils");
+var loaderUtils = require("loader-utils"),
+    sibilant = require("sibilant");
 var sibilantWebpackLoader = (function sibilantWebpackLoader$(source) {
   /* sibilant-webpack-loader index.sibilant:3:0 */
 
-  delete require.cache[require.resolve("sibilant")];
-  var sibilant = require("sibilant");
   var loader = this;
   loader.cacheable();
   var sibilantRequest = loaderUtils.getRemainingRequest(loader),
@@ -18,10 +17,10 @@ var sibilantWebpackLoader = (function sibilantWebpackLoader$(source) {
       map = result.map;
   console.log(("" + sibilantRequest + ": " + dependencies.join(", ")));
   dependencies.map((function() {
-    /* index.sibilant:15:23 */
+    /* index.sibilant:13:23 */
   
     return loader.addDependency(arguments[0]);
   }));
-  return loader.callback(null, js, JSON.parse(map));
+  return loader.callback(null, js, map);
 });
 module.exports = sibilantWebpackLoader;
