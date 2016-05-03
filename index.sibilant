@@ -11,6 +11,6 @@
           { js dependencies map } result)
      (console.log (""sibilant-request": "(.join dependencies ", ")))
      (dependencies.map (#-> loader.add-dependency))
-     (loader.callback null js map))
+     (loader.callback null js (map.toJSON)))
 
 (set module 'exports sibilant-webpack-loader)

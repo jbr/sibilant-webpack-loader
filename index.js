@@ -21,6 +21,6 @@ var sibilantWebpackLoader = (function sibilantWebpackLoader$(source) {
   
     return loader.addDependency(arguments[0]);
   }));
-  return loader.callback(null, js, map);
+  return loader.callback(null, js, map.toJSON());
 });
 module.exports = sibilantWebpackLoader;
